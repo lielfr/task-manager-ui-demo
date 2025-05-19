@@ -16,13 +16,7 @@ import {
   ContextMenuTrigger,
 } from '@/components/ui/context-menu'
 import { X } from 'lucide-vue-next'
-
-interface Process {
-  pid: number
-  name: string
-  cpu: number
-  memory: number
-}
+import type { Process } from '@/lib/interfaces.ts'
 
 const processes: Ref<Process[]> = ref([
   {
@@ -32,6 +26,10 @@ const processes: Ref<Process[]> = ref([
     memory: 256,
   },
 ])
+
+const killProcess = (pid: number) => {
+  console.log(`kill ${pid}`)
+}
 </script>
 
 <template>
@@ -52,7 +50,7 @@ const processes: Ref<Process[]> = ref([
         <TableBody>
           <ContextMenu v-for="process of processes" :key="process.pid">
             <ContextMenuContent class="bg-background text-foreground">
-              <ContextMenuItem class="hover:cursor-pointer">
+              <ContextMenuItem class="hover:cursor-pointer" @select="killProcess(process.pid)">
                 <X />
                 Kill Process
               </ContextMenuItem>

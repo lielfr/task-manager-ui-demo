@@ -6,7 +6,7 @@ const isDarkMode = usePreferredDark()
 </script>
 
 <template>
-  <div class="min-w-svw min-h-svh bg-background text-foreground p-4" :class="{ dark: isDarkMode }">
+  <div class="min-w-svw min-h-svh bg-background text-foreground p-2 lg:p-4" :class="{ dark: isDarkMode }">
     <header></header>
 
     <RouterView />

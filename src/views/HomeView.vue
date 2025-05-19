@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import TheProcessList from '@/components/the-process-list.vue'
 import UsageChart from '@/components/usage-chart.vue'
+import type { DataRecord } from '@/lib/interfaces.ts'
 
-const dummyData = [
+const dummyData: DataRecord[] = [
   {
     time: 1,
     value: 0.5,
